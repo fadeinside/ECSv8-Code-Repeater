@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- HTML -->
+
+<html>
+
+<!-- HEAD -->
+
+<head>
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=0.8, maximum-scale=0.8, user-scalable=0" />
+
+	<!-- SITE -->
+	<title>Extra Character Slots | Code Repeater</title>
+	<link rel="icon" type="image/x-icon" href="src/img/favicon.png">
+
+	<!-- SCRIPTS & CSS-->
+	<script defer src="javascript/jquery.js"></script>
+	<script defer src="javascript/scripts.js"></script>
+	<link href="styles.css" rel="stylesheet">
+
+	<!-- DISCORD EMBED-->
+	<meta property="og:title" content="Extra Character Slots | Code Repeater">
+	<meta property="og:site_name" content="A large-scale Sonic 3 A.I.R. framework for creating custom characters">
+	<meta property="og:image" content="https://media.discordapp.net/attachments/950854150307061810/1045819091983806464/image.png?width=1178&height=662">
+	<meta property="og:description" content="The ECSU Framework tool for duplicating the same code for each character ID.">
+	<meta name="theme-color" content="#dd54ff">
+	<meta property="twitter:card" content="summary_large_image">
+</head>
+
+<!-- BODY -->
+
+<body>
+
+	<!-- PANELS -->
+	<div class="generate">
+		<div class="generate--row">
+
+			<!-- PASTE YOUR CODE -->
+			<div class="generate--box">
+				<div class="generate--frame">
+					<div class="generate--title">YOUR CODE</div>
+					<div class="generate--frame2">
+						<textarea class="--paddingTop" id="main_code"></textarea>
+						<span class="validity"></span>
+					</div>
+					<div class="generate--frame3">
+						<a class="--revers button" id="generate">GENERATE</a>
+						<div class="generate--detail" id="notify"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- OPTIONS -->
+			<div class="generate--box">
+				<div class="generate--frame">
+					<div class="generate--title">OPTIONS</div>
+					<div class="generate--frame3">
+						<input id="min" value="1" placeholder="Default: 1" type="number" min="1" max="255"required></input>
+						<input id="max" value="255" placeholder="Default: 255" type="number" min="1" max="255" required></input>
+						<span class="validity"></span>
+					</div>
+				</div>
+				<!-- INFO -->
+				<br>
+				<div class="info">
+					<div class="info--frame">
+						<div class="info--text">
+							<b>%num</b> is the unit that will be replaced by consecutive number in the range specified in the Options.
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- GENERATED CODE -->
+			<div class="generate--box" style="transform: none;">
+				<div class="generate--frame">
+					<div class="generate--title">GENERATED CODE</div>
+					<div class="generate--frame3">
+						<a class="--revers button" id="copy">COPY ALL</a>
+						<a class="--revers button" id="clear">CLEAR</a>
+						<div class="generate--detail" id="notify2"></div>
+					</div>
+					<textarea class="--paddingTop" id="generated_code" readonly></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>
