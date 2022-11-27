@@ -26,6 +26,8 @@ $(function() {
 			this.style.height = 0;
 			this.style.height = (this.scrollHeight) + "px";
 		});
+		document.getElementById("copy").style.display = "none";
+		document.getElementById("clear").style.display = "none";
 	});
 	
 	$("#generate").click( function(e) {
@@ -41,12 +43,14 @@ $(function() {
 					this.innerHTML += `\n`
 				};
 
-				this.innerHTML += build.replace(/%num/g, i);
+				this.innerHTML += build.replace(/%num/gi, i).replace(/%hex/gi, decimalToPaddedHexString(i, 8));
 			};
 			
 			this.style.height = 0;
 			this.style.height = (this.scrollHeight) + "px";
 		});
+		document.getElementById("copy").style.display = "unset";
+		document.getElementById("clear").style.display = "unset";
 	});
 });
 
@@ -158,3 +162,17 @@ $(function() {
 		return true;
 	});
 });
+
+function decimalToPaddedHexString(number, bitsize)
+{ 
+	let byteCount = Math.ceil(bitsize/8);
+	let maxBinValue = Math.pow(2, bitsize)-1;
+
+	if (bitsize > 32)
+		throw "number above maximum value";
+
+	if (number < 0)
+		number = maxBinValue + number + 1;
+
+	return "0x"+(number >>> 0).toString(16).toLowerCase().padStart(byteCount*2, '0');
+};
